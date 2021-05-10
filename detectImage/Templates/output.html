@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="{% url 'App:homepage' %}">
+        <button style="border-radius:15px">Back To Home</button>
+    </a>
+    <img id="scream" width="220" height="277"
+        src="{{filePath}}" alt="The Scream">
+    <div align="center">
+        <canvas width="650" height="650" style="border:1px solid #d3d3d3;" id="myCanvas"></canvas>
+    </div>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("myCanvas").getContext('2d');
+            var img = new Image();
+
+            img.onload = function() {
+                canvas.drawImage(img, 0, 0, 650, 650);
+            };
+            img.src = "{{filePath}}"
+        };
+    </script>
+</body>
+</html>
